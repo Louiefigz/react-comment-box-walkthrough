@@ -8,6 +8,10 @@ import OneComment from "./one-comment";
 
 
 class Comments extends React.Component{
+
+
+
+
   constructor(){
     super();
     this.state={
@@ -18,10 +22,26 @@ class Comments extends React.Component{
     this.handleClick = this.handleClick.bind(this);
   }
 
+
+
+
+
   handleClick(e){
+    //e is the event that we need to stop from automatically refreshing the page
     e.preventDefault();
-    console.log('I just clicked this thing')
+    console.log('I just clicked this thing');
+    this.setState({
+      newComments: this.state.newComments.concat([this.state.input]),
+      input: ""
+    })
   }
+// OR we can do the below code and it will work the same.
+// [...this.state.newComments, this.state.input]
+
+
+
+
+
   //The function we are calling is outside of the constructor method.
   // Also outside of render method.
   handleInput(e){
