@@ -18,11 +18,13 @@ class Comments extends React.Component{
   }
   //The function we are calling is outside of the constructor method.
   // Also outside of render method.
-  handleInput(){
+  handleInput(e){
     // Delete console.log code after testing behavior
     console.log("Watch out Anonymous.  I'm a real hacker")
 
-
+    this.setState({
+      input: e.target.value
+    })
   }
 
 
