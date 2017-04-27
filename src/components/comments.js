@@ -15,18 +15,35 @@ class Comments extends React.Component{
       input: ""
     }
     this.handleInput = this.handleInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e){
+    e.preventDefault();
+    console.log('I just clicked this thing')
   }
   //The function we are calling is outside of the constructor method.
   // Also outside of render method.
   handleInput(e){
     // Delete console.log code after testing behavior
-    console.log("Watch out Anonymous.  I'm a real hacker")
-
+    // console.log("Watch out Anonymous.  I'm a real hacker")
     this.setState({
       input: e.target.value
     })
+    //The State will not have updated by the time it hits the below console.log.
+    //setState is asynchronous. we will have to use another method in order to check
+    //our updated state.
+    // console.log("handleInput update - " + this.state.input  )
+
   }
 
+// This method below is triggered once changes have been finalized aka state
+componentDidUpdate(){
+  if(this.state.input !== ""){
+    // console.log("componentDidUpdate log - " + this.state.input)
+  }
+
+}
 
 
 
