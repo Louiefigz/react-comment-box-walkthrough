@@ -74,13 +74,17 @@ render(){
   const newComments = this.state.newComments.map((item, index)=> <OneComment key={index} comment={item}/>)
   return(
     <div>
-      {comments}
-      {newComments}
 
       <form>
         <input placeholder="enter comment" onChange={this.handleInput} value={this.state.input}/>
         <button onClick={this.handleClick}> Add Comment</button>
       </form>
+
+
+
+      <div className="wrap">
+          {newComments}
+      </div>
     </div>
   )
 }
